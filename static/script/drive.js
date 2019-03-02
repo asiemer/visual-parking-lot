@@ -7,6 +7,9 @@ const WEST = 'WEST';
 const RIGHT = 'RIGHT';
 const LEFT = 'LEFT';
 const MOVE_VALUE = 100;
+const COLLISSION_SCAN_VALUE = 200;
+const CAR_HEIGHT = 100;
+const CAR_WIDTH = 200;
 
 function reverse(car) {
     let direction = getDirection(car);
@@ -72,6 +75,7 @@ function turnIt(car, direction, cmd) {
             break;
     }
 }
+
 function moveIt(car, direction, cmd){
     switch(direction) {
         case NORTH:
@@ -129,4 +133,58 @@ function getDirection(car) {
     else if(classes.indexOf('east')>0) {direction = EAST;}
     else if(classes.indexOf('west')>0) {direction = WEST;}
     return direction;
+}
+
+function checkCollisionStatus(car) {
+    let scanRect = getScanRect(car);
+
+    console.dir(scanRect);
+
+    let cars = document.querySelectorAll(".car");
+
+    cars.forEach(function(c) {
+        var rect = c.getBoundingClientRect();
+        console.dir(rect);
+
+        //check left bounardy
+        if(scanRect.left < rect.left && scanRect.right > rect.left) {
+            //check top boundary
+            if(scanRect.top <= rect.top && scanRect.bottom > rect.top) {
+                alert('alarm');
+            }
+            
+        }
+    });
+}
+
+function getScanRect(car) {
+    let direction = getDirection(car);
+    let scanRect = {top:0, bottom:0, left:0, right:0};
+    switch (direction) {
+        case NORTH:
+
+            break;
+
+        case SOUTH: 
+
+            break;
+
+        case WEST:
+
+            break;
+
+        case EAST:
+            console.dir(car.style);
+            let left = parseInt(car.style.left.replace('px')) + CAR_WIDTH;
+            let right = left + COLLISSION_SCAN_VALUE;
+            let top = parseInt(car.style.top.replace('px'));
+            let bottom = top + CAR_HEIGHT;
+            scanRect.top = top;
+            scanRect.bottom = bottom;
+            scanRect.left = left;
+            scanRect.right = right;
+            break;
+    }
+
+    return scanRect;
 }
