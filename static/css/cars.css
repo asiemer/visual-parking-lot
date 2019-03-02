@@ -6,10 +6,12 @@
     padding:0px;
     margin:0px;
     border:1px solid red;
+    box-sizing: border-box;
+    background-size: cover;
 }
 .selected-car {
-    border: 3px sold red;
-    background-color: red;
+    border: 3px solid red;
+    background-color: yellow;
     z-index: 1000;
 }
 .north{
