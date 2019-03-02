@@ -160,21 +160,42 @@ function checkCollisionStatus(car) {
 function getScanRect(car) {
     let direction = getDirection(car);
     let scanRect = {top:0, bottom:0, left:0, right:0};
+    
     switch (direction) {
         case NORTH:
-
+            let left = parseInt(car.style.left.replace('px'));
+            let right = parseInt(car.style.left.replace('px')) + CAR_WIDTH;
+            let top = parseInt(car.style.top.replace('px')) - COLLISSION_SCAN_VALUE;
+            let bottom = parseInt(car.style.top.replace('px'));
+            scanRect.top = top;
+            scanRect.bottom = bottom;
+            scanRect.left = left;
+            scanRect.right = right;
             break;
 
         case SOUTH: 
-
+            let left = parseInt(car.style.left.replace('px'));
+            let right = parseInt(car.style.left.replace('px')) + CAR_WIDTH;
+            let top = parseInt(car.style.top.replace('px')) + CAR_HEIGHT;
+            let bottom = top + CAR_HEIGHT + COLLISSION_SCAN_VALUE;
+            scanRect.top = top;
+            scanRect.bottom = bottom;
+            scanRect.left = left;
+            scanRect.right = right;
             break;
 
         case WEST:
-
+            let left = parseInt(car.style.left.replace('px')) - COLLISSION_SCAN_VALUE;
+            let right = parseInt(car.style.left.replace('px'));
+            let top = parseInt(car.style.top.replace('px'));
+            let bottom = top + CAR_HEIGHT;
+            scanRect.top = top;
+            scanRect.bottom = bottom;
+            scanRect.left = left;
+            scanRect.right = right;
             break;
 
         case EAST:
-            console.dir(car.style);
             let left = parseInt(car.style.left.replace('px')) + CAR_WIDTH;
             let right = left + COLLISSION_SCAN_VALUE;
             let top = parseInt(car.style.top.replace('px'));
