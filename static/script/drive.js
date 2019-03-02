@@ -6,6 +6,7 @@ const EAST = 'EAST';
 const WEST = 'WEST';
 const RIGHT = 'RIGHT';
 const LEFT = 'LEFT';
+const MOVE_VALUE = 100;
 
 function reverse(car) {
     let direction = getDirection(car);
@@ -72,9 +73,6 @@ function turnIt(car, direction, cmd) {
     }
 }
 function moveIt(car, direction, cmd){
-    const MOVE_VALUE = 10;
-    
-
     switch(direction) {
         case NORTH:
             var top = car.style.top.replace('px','');
