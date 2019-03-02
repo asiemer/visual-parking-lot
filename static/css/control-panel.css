@@ -1,0 +1,9 @@
+.cp {
+    border: 1px red solid;
+    position: fixed;
+    width: 200px;
+    right: 10px;
+}
+.cp input {
+    display: block;
+}

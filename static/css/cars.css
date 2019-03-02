@@ -1,0 +1,47 @@
+.car{
+    position:absolute;
+    z-index: 100;
+    width:200px;
+    height:99px;
+    padding:0px;
+    margin:0px;
+    border:1px solid red;
+}
+.selected-car {
+    border: 3px sold red;
+    background-color: red;
+    z-index: 1000;
+}
+.north{
+    transform:rotate(270deg);
+}
+.south{
+    transform:rotate(90deg);
+}
+.east{
+    transform:rotate(0deg);
+}
+.west{
+    transform:rotate(180deg);
+}
+.car1{
+    background-image: url('./../img/car-dragon.png');
+}
+.car2{
+    background-image: url('./../img/car-hot-pink.png');
+}
+.car3{
+    background-image: url('./../img/car-lime-green.png');
+}
+.car4{
+    background-image: url('./../img/car-pink.png');
+}
+.car5{
+    background-image: url('./../img/car-purple.png');
+}
+.car6{
+    background-image: url('./../img/car-red.png');
+}
+.car7{
+    background-image: url('./../img/car-white.png');
+}
